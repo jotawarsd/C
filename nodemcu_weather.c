@@ -2,10 +2,10 @@
 #include <complex.h>
 #include <ESP8266WiFi.h>
  
-String apiKey = "8MWFGOJJPQVQUXUM";     //  Enter your Write API key from ThingSpeak
+String apiKey = "";     //  Enter your Write API key from ThingSpeak
  
-const char *ssid =  "Deepak JIO";     // replace with your wifi ssid and wpa2 key
-const char *pass =  "9881095636";     // replace with wifi password
+const char *ssid =  "";     // replace with your wifi ssid and wpa2 key
+const char *pass =  "";     // replace with wifi password
 const char* server = "api.thingspeak.com";
  
 #define DHTPIN 0          //pin where the dht11 is connected
