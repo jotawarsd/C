@@ -1,2 +1,2 @@
-Code for an IoT based Weather station made using nodemcu
-can run on arduino ide
+Code for an IoT based Weather station made using nodemcu.
+To be run on Arduino IDE.
