@@ -153,42 +153,42 @@ void loop()
 
       
       
-if (client.connect(server,80))   //   "184.106.153.149" or api.thingspeak.com
-{                           
-        String postStr = apiKey;
-        postStr +="&field1=";
-        postStr += String(t);
-        postStr +="&field2=";
-        postStr += String(h);
-        postStr +="&field3=";
-        postStr += String(dp);
-        postStr +="&field4=";
-        postStr += String(event.pressure);
-        postStr +="&field5=";
-        postStr += String(temperature);
-        postStr +="&field6=";
-        postStr += String(bmp.pressureToAltitude(seaLevelPressure,event.pressure));
-        postStr +="&field7=";
-        postStr += String(Lux);
-        postStr +="&field8=";
-        postStr += String((sensorValue2/10));
-        postStr += "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
+      if (client.connect(server,80))   //   "184.106.153.149" or api.thingspeak.com
+      {                           
+              String postStr = apiKey;
+              postStr +="&field1=";
+              postStr += String(t);
+              postStr +="&field2=";
+              postStr += String(h);
+              postStr +="&field3=";
+              postStr += String(dp);
+              postStr +="&field4=";
+              postStr += String(event.pressure);
+              postStr +="&field5=";
+              postStr += String(temperature);
+              postStr +="&field6=";
+              postStr += String(bmp.pressureToAltitude(seaLevelPressure,event.pressure));
+              postStr +="&field7=";
+              postStr += String(Lux);
+              postStr +="&field8=";
+              postStr += String((sensorValue2/10));
+              postStr += "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
 
-//--------------------------------
- 
-        client.print("POST /update HTTP/1.1\n");
-        client.print("Host: api.thingspeak.com\n");
-        client.print("Connection: close\n");
-        client.print("X-THINGSPEAKAPIKEY: "+apiKey+"\n");
-        client.print("Content-Type: application/x-www-form-urlencoded\n");
-        client.print("Content-Length: ");
-        client.print(postStr.length());
-        client.print("\n\n\n\n\n\n\n\n\n");
-        client.print(postStr);
-        
-        Serial.println("%. Send to Thingspeak.");
-                        
-}
+      //--------------------------------
+
+              client.print("POST /update HTTP/1.1\n");
+              client.print("Host: api.thingspeak.com\n");
+              client.print("Connection: close\n");
+              client.print("X-THINGSPEAKAPIKEY: "+apiKey+"\n");
+              client.print("Content-Type: application/x-www-form-urlencoded\n");
+              client.print("Content-Length: ");
+              client.print(postStr.length());
+              client.print("\n\n\n\n\n\n\n\n\n");
+              client.print(postStr);
+
+              Serial.println("%. Send to Thingspeak.");
+
+      }
                         
 client.stop();
 Serial.println("Waiting...");
